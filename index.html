@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athenian Salon · BTM Layout, Bengaluru</title>
+<meta name="description" content="Athenian Salon, BTM Layout, Bengaluru. Hair, colour, botox, beard, skin and makeup. Book your appointment on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1a1a; --card:#262626; --card2:#303030; --ink:#f1f1ea; --mute:#9b9b94;
+  --lime:#c5ff8a; --peri:#98a4ff; --black:#111;
+  --line:rgba(255,255,255,.1); --cell:40px;
+  --px:"Silkscreen",monospace; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.6;overflow-x:hidden;text-transform:uppercase;letter-spacing:.02em;
+  background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/var(--cell) var(--cell),linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/var(--cell) var(--cell),var(--bg)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;text-transform:inherit;letter-spacing:inherit}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+::selection{background:var(--lime);color:var(--black)}
+.x{color:var(--lime);letter-spacing:.3em;margin-left:14px}
+.mute{color:var(--mute)}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(26,26,26,.9);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--px);font-size:1.15rem}
+.links{display:flex;gap:32px;font-size:12px}
+.links a{color:var(--mute)}
+.links a:hover{color:var(--lime)}
+.links a:hover::before{content:"> "}
+.br{font-family:var(--px);color:var(--lime);font-size:1rem;line-height:1.1;display:inline-block;transition:transform .12s steps(2),color .12s}
+.br::before{content:"{"}.br::after{content:"}"}
+.br:hover{transform:translate(-3px,-3px);text-shadow:3px 3px 0 var(--peri)}
+.br.lg{font-size:clamp(1.3rem,2.6vw,1.9rem)}
+
+/* hero */
+.hero{padding:96px 0 0;position:relative;overflow:hidden}
+.tw{position:absolute;width:var(--cell);height:var(--cell);background:rgba(255,255,255,.045);animation:tw 5s steps(1) infinite;pointer-events:none}
+@keyframes tw{0%,60%{opacity:0}61%,100%{opacity:1}}
+.toprow{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;font-size:12px;position:relative}
+.toprow p{max-width:300px;color:var(--mute)}
+.hl{font-family:var(--px);font-weight:400;font-size:clamp(2.6rem,12.5vw,11.5rem);line-height:.95;white-space:nowrap;margin:26px 0 30px;position:relative;letter-spacing:0;text-align:center}
+.hl div{display:block}
+.hl small{display:block;font-size:.42em;margin-top:.2em;letter-spacing:.04em}
+.hl i{font-style:normal;color:var(--lime)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.panel{position:relative;aspect-ratio:1000/520;overflow:hidden;background:linear-gradient(180deg,#b3bdff 0%,#8490f5 45%,#3b43b8 100%)}
+.panel svg{position:absolute;inset:0;width:100%;height:100%}
+.panel::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.55;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.c{opacity:0;animation:pop .1s steps(1) forwards}
+@keyframes pop{to{opacity:1}}
+.c.bk rect{animation:bk 3.4s steps(1) infinite}
+@keyframes bk{0%,84%{opacity:1}85%,100%{opacity:.35}}
+.fl{animation:fl 5s steps(5) infinite alternate}
+@keyframes fl{to{transform:translateY(-14px)}}
+.box{position:absolute;z-index:2;background:rgba(214,222,255,.3);backdrop-filter:blur(2px);color:#fff;padding:16px 20px}
+.box.a{left:0;top:13%;min-width:300px}
+.box.b{right:0;top:9%;text-align:left}
+.box .t{font-size:12px;letter-spacing:.16em}
+.box .p{font-family:var(--px);font-size:clamp(1.1rem,2.4vw,1.7rem);line-height:1.25;margin-top:8px}
+.box a.p{display:block}
+.box a.p:hover{color:var(--black)}
+.cur{display:inline-block;width:.6em;height:1em;background:currentColor;vertical-align:-2px;animation:tw2 1s steps(1) infinite}
+@keyframes tw2{50%{opacity:0}}
+
+/* sections */
+section{padding:clamp(70px,9vw,120px) 0}
+.sh{display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:end;margin-bottom:40px}
+.sh small{font-size:12px;padding-bottom:10px}
+h2{font-family:var(--px);font-weight:400;font-size:clamp(1.8rem,5vw,3.6rem);line-height:1;letter-spacing:0}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .5s steps(5),transform .5s steps(5);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--cell) 0}
+.grid>*{margin-right:var(--cell)}
+.card{background:var(--card);min-height:240px;display:flex;flex-direction:column;position:relative;transition:transform .12s steps(2),box-shadow .12s steps(2)}
+.card:hover{transform:translate(-6px,-6px);box-shadow:6px 6px 0 var(--lime)}
+.card .hd{display:flex;align-items:stretch;border-bottom:1px solid rgba(0,0,0,.35)}
+.card .ic{width:48px;height:48px;background:var(--card2);display:grid;place-items:center;color:var(--lime);font-family:var(--px);flex:none}
+.card h3{font-weight:500;font-size:14px;padding:0 16px;display:flex;align-items:center}
+.card p{margin-top:auto;padding:20px 16px 12px;color:var(--mute);font-size:12px;max-width:34ch}
+.card .go{padding:0 16px 18px;font-size:12px;color:var(--lime);text-align:left}
+.card .go:hover{color:#fff}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
+.stat{padding:34px 0 30px;border-right:1px solid var(--line);padding-left:24px}
+.stat:first-child{padding-left:0}
+.stat:last-child{border:0}
+.stat small{font-size:12px;color:var(--mute);display:block}
+.stat b{display:block;font-family:var(--px);font-weight:400;font-size:clamp(2.2rem,7vw,5rem);line-height:1.1;margin-top:8px}
+.stat b i{font-style:normal;color:var(--lime);font-size:.45em;margin-left:8px}
+
+.rev{min-height:0;padding:22px 20px}
+.rev .st{color:var(--lime);letter-spacing:.3em;font-size:12px}
+.rev q{display:block;text-transform:none;font-size:15px;line-height:1.6;margin:14px 0 20px;quotes:none}
+.rev small{font-size:11px;color:var(--mute);margin-top:auto}
+.revs{grid-template-columns:repeat(4,1fr)}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--cell);font-size:12px}
+.tags span{border:1px solid var(--lime);color:var(--lime);padding:6px 14px;transition:all .12s steps(2)}
+.tags span:hover{background:var(--lime);color:var(--black)}
+
+/* booking */
+#book{background:var(--lime);color:var(--black)}
+#book .x{color:var(--black)}
+.step{display:grid;grid-template-columns:240px 1fr;gap:20px;padding:26px 0;border-top:2px solid var(--black);align-items:start}
+.step h4{font-weight:700;font-size:13px;display:flex;align-items:center;gap:14px;padding-top:8px}
+.step h4 b{width:30px;height:30px;display:grid;place-items:center;border:2px solid var(--black);font-family:var(--px);font-weight:400}
+.step.done h4 b{background:var(--black);color:var(--lime)}
+.step.done h4::after{content:"OK";font-family:var(--px);font-size:11px;margin-left:auto;margin-right:20px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{padding:9px 16px;border:2px solid var(--black);font-size:13px;font-weight:500;transition:transform .1s steps(2),box-shadow .1s steps(2)}
+.opt:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--black)}
+.opt.on{background:var(--black);color:var(--lime)}
+.opt:disabled{opacity:.3;pointer-events:none;text-decoration:line-through}
+.days{display:flex;gap:10px;overflow-x:auto;padding:4px 0 10px}
+.day{flex:none;width:74px;padding:10px 0;border:2px solid var(--black);text-align:center;transition:transform .1s steps(2),box-shadow .1s steps(2)}
+.day small{display:block;font-size:11px}
+.day b{display:block;font-family:var(--px);font-weight:400;font-size:1.5rem;line-height:1.3}
+.day:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--black)}
+.day.on{background:var(--black);color:var(--lime)}
+input[type=text]{width:min(420px,100%);padding:11px 16px;border:2px solid var(--black);background:transparent;color:var(--black);font:inherit;font-weight:500;outline:0;border-radius:0;text-transform:none}
+input[type=text]:focus{box-shadow:4px 4px 0 var(--black)}
+input::placeholder{color:rgba(17,17,17,.5)}
+.fin{display:grid;grid-template-columns:240px 1fr auto;gap:20px;align-items:center;padding-top:26px;border-top:2px solid var(--black)}
+.fin small{font-size:13px;font-weight:700}
+.sum{font-size:14px;font-weight:500}
+.send{font-family:var(--px);font-size:1.05rem;background:var(--black);color:var(--lime);padding:16px 22px;display:inline-block;transition:transform .1s steps(2),box-shadow .1s steps(2)}
+.send::before{content:"{"}.send::after{content:"}"}
+.send:hover{transform:translate(-4px,-4px);box-shadow:4px 4px 0 var(--peri)}
+.send.off{opacity:.3;pointer-events:none}
+.send:not(.off){animation:nudge 1.2s steps(2) infinite}
+@keyframes nudge{50%{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--peri)}}
+
+/* visit */
+.visit{display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:start}
+.info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px}
+.info small{font-size:11px;color:var(--lime);display:block;margin-bottom:4px}
+.info p{font-size:14px;max-width:34ch}
+.info a:hover{color:var(--lime)}
+.map{grid-column:1/-1;margin-top:20px;border:3px solid var(--lime);background:var(--card);box-shadow:10px 10px 0 var(--peri)}
+.map .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--lime);color:var(--black);padding:10px 16px;font-size:12px;font-weight:700}
+.map .bar a{font-family:var(--px);font-weight:400;font-size:.95rem}
+.map .bar a:hover{text-decoration:underline}
+.map .m{position:relative;height:min(560px,70vh);background:#202020;overflow:hidden}
+.map .m>a,.map .m svg,.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.map iframe{background:transparent}
+.pin{animation:pinb .8s steps(3) infinite alternate}
+@keyframes pinb{to{transform:translateY(-12px)}}
+.ring{transform-box:fill-box;transform-origin:center;animation:ringp 1.6s steps(6) infinite}
+@keyframes ringp{from{transform:scale(.4);opacity:1}to{transform:scale(2.4);opacity:0}}
+
+footer{background:linear-gradient(180deg,#98a4ff,#3b43b8);color:#fff;padding:50px 0 90px;overflow:hidden}
+.big{font-family:var(--px);font-size:clamp(2.6rem,12.5vw,11rem);line-height:1;white-space:nowrap;margin-bottom:30px}
+footer .wrap.r{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:30;font-family:var(--px);background:var(--lime);color:var(--black);padding:14px 18px;box-shadow:4px 4px 0 var(--black);transform:translateY(120px);transition:transform .3s steps(4)}
+.fab.show{transform:none}
+
+@media(max-width:900px){
+  .links{display:none}
+  .sh,.step{grid-template-columns:1fr;gap:12px}
+  .grid,.revs{grid-template-columns:1fr 1fr}
+  .fin{grid-template-columns:1fr}
+  .visit{grid-template-columns:1fr}
+  .visit>span{display:none}
+  .panel{aspect-ratio:auto;padding-top:52%}
+  .box{position:static;display:block}
+  .box.a{background:#7d88f0}.box.b{background:#3b43b8}
+  .panel{display:flex;flex-direction:column;padding-top:0}
+  .panel svg{position:relative;order:-1;height:auto;aspect-ratio:1000/520}
+  .step.done h4::after{margin-right:0}
+}
+@media(max-width:540px){
+  .grid,.revs{grid-template-columns:1fr}
+  .grid>*{margin-right:0}
+  .grid{gap:20px 0}
+  .toprow p{display:none}
+  .stat{padding-left:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .c{opacity:1}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><nav>
+  <a href="#top" class="logo">ATHENIAN</a>
+  <div class="links"><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#book">Book</a><a href="#visit">Visit</a></div>
+  <a href="#book" class="br">Book</a>
+</nav></div></header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="wrap toprow">
+    <span>Salon &amp; academy<span class="x">×××</span></span>
+    <p>Hair, colour, botox, skin and makeup in BTM Layout, Bengaluru. Open until 9:30 pm.</p>
+  </div>
+  <h1 class="hl" aria-label="Athenian Salon BTM"><div aria-hidden="true">ATHENIAN<small>SALON · BTM</small></div></h1>
+  <div class="wrap">
+    <div class="panel">
+      <svg id="art" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs><pattern id="plus" width="125" height="130" patternUnits="userSpaceOnUse"><path d="M62 58v14M55 65h14" stroke="#e6ebff" stroke-width="1.5" opacity=".7"/><path d="M0 65h125M62 0v130" stroke="#e6ebff" stroke-width=".5" opacity=".25"/></pattern></defs>
+        <rect width="1000" height="520" fill="url(#plus)"/>
+      </svg>
+      <div class="box a">
+        <div class="t" id="clock">—</div>
+        <a class="p" href="#book">→ Book a slot</a>
+        <a class="p" href="#visit">↓ Find us<span class="cur" style="margin-left:8px"></span></a>
+      </div>
+      <div class="box b">
+        <div class="t">Google rating</div>
+        <div class="p">4.9 ★ / 928</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:36px;flex-wrap:wrap;align-items:center;padding:36px 0 0">
+      <a href="#book" class="br lg">Book on WhatsApp</a>
+      <a href="tel:+918431337319" class="mute">or call 084313 37319</a>
+    </div>
+  </div>
+</section>
+
+<section id="services"><div class="wrap">
+  <div class="sh rv"><small>01 / Services<span class="x">×××</span></small><h2 data-sc>What we do</h2></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<div class="wrap"><div class="stats">
+  <div class="stat rv"><small>Google rating</small><b><span data-count="4.9" data-dec="1">0</span><i>★</i></b></div>
+  <div class="stat rv" style="--d:.1s"><small>Reviews</small><b><span data-count="928">0</span><i>+</i></b></div>
+  <div class="stat rv" style="--d:.2s"><small>Open until</small><b><span data-count="9.5" data-dec="1">0</span><i>PM</i></b></div>
+</div></div>
+
+<section id="reviews"><div class="wrap">
+  <div class="sh rv"><small>02 / Reviews<span class="x">×××</span></small><h2 data-sc>Word on the street</h2></div>
+  <div class="grid revs">
+    <div class="card rev rv"><div class="st">★★★★★</div><q>Very good service, friendly staff, quality products and very fast service ✨😁👍</q><small>Google review</small></div>
+    <div class="card rev rv" style="--d:.08s"><div class="st">★★★★★</div><q>Nice ambience, calm atmosphere, good therapists and great manager.</q><small>Google review</small></div>
+    <div class="card rev rv" style="--d:.16s"><div class="st">★★★★★</div><q>Reallay nice place .I took my son there we both loved.price also pretty decent</q><small>Google review</small></div>
+    <div class="card rev rv" style="--d:.24s"><div class="st">★★★★★</div><q>A huge thank you to Priyanka for the amazing haircut today! She was professional, friendly, and took time to understand exactly what I wanted and absolutely loving my new look.</q><small>Google review</small></div>
+  </div>
+  <div class="tags rv"><span>Polite staff</span><span>Hair colour</span><span>Botox</span><span>Beard trim</span><span>Women-owned</span><span>LGBTQ+ friendly</span></div>
+</div></section>
+
+<section id="book"><div class="wrap">
+  <div class="sh rv"><small>03 / Book<span class="x">×××</span></small><h2 data-sc>Pick a slot</h2></div>
+  <div class="rv">
+    <div class="step" id="s1"><h4><b>1</b>Service</h4><div class="opts" id="svcOpts"></div></div>
+    <div class="step" id="s2"><h4><b>2</b>Day</h4><div class="days" id="days"></div></div>
+    <div class="step" id="s3"><h4><b>3</b>Time</h4><div class="opts" id="times"></div></div>
+    <div class="step" id="s4"><h4><b>4</b>Your name</h4><div><input type="text" id="name" placeholder="e.g. Priya" autocomplete="given-name" maxlength="40"></div></div>
+    <div class="fin">
+      <small id="sumL">Still needed</small>
+      <span class="sum" id="sum"></span>
+      <a class="send off" id="send" target="_blank" rel="noopener">Send on WhatsApp</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+  <div class="sh rv"><small>04 / Visit<span class="x">×××</span></small><h2 data-sc>Find us</h2></div>
+  <div class="visit">
+    <span></span>
+    <div class="info rv">
+      <div><small>Address</small><p>1198 First Floor, 16th Main Rd, Mahadeshwara Nagar, Stage 2, BTM Layout, Bengaluru, Karnataka 560076</p></div>
+      <div><small>Hours</small><p>Open until 9:30 pm</p></div>
+      <div><small>Phone / WhatsApp</small><p><a href="tel:+918431337319">084313 37319</a></p></div>
+      <div><small>Plus code</small><p>WJ65+GX Bengaluru</p></div>
+      <div><small>Website</small><p><a target="_blank" rel="noopener" href="https://atheniansalon.com">atheniansalon.com</a></p></div>
+      <div><a class="br" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Athenian+Salon+BTM+1198+16th+Main+Rd+Mahadeshwara+Nagar+BTM+Layout+Bengaluru+560076">Get directions</a></div>
+    </div>
+    <div class="map rv" style="--d:.1s">
+      <div class="bar"><span>Athenian Salon BTM / WJ65+GX Bengaluru</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Athenian+Salon+BTM+1198+16th+Main+Rd+Mahadeshwara+Nagar+BTM+Layout+Bengaluru+560076">→ Open in Google Maps</a></div>
+      <div class="m">
+        <!-- drawn fallback: shows whenever the live Google map below can't load -->
+        <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Athenian+Salon+BTM+1198+16th+Main+Rd+Mahadeshwara+Nagar+BTM+Layout+Bengaluru+560076" aria-label="Open Athenian Salon BTM in Google Maps">
+          <svg viewBox="-600 -310 2200 1140" preserveAspectRatio="xMidYMid slice">
+            <defs><pattern id="blk" width="240" height="170" patternUnits="userSpaceOnUse"><rect x="20" y="20" width="200" height="130" fill="#2c2c2c"/></pattern></defs>
+            <rect x="-600" y="-310" width="2200" height="1140" fill="#202020"/>
+            <rect x="-600" y="-310" width="2200" height="1140" fill="url(#blk)"/>
+            <rect x="-600" y="300" width="2200" height="80" fill="#3a3a3a"/>
+            <rect x="-140" y="-310" width="70" height="1140" fill="#333"/>
+            <rect x="1180" y="-310" width="70" height="1140" fill="#333"/>
+            <rect x="-600" y="-120" width="2200" height="50" fill="#333"/>
+            <rect x="-600" y="640" width="2200" height="50" fill="#333"/>
+            <rect width="1000" height="520" fill="#202020"/>
+            <g fill="#2c2c2c"><rect x="40" y="40" width="200" height="120"/><rect x="280" y="40" width="160" height="120"/><rect x="480" y="40" width="240" height="120"/><rect x="760" y="40" width="200" height="120"/>
+              <rect x="40" y="200" width="120" height="80"/><rect x="200" y="200" width="240" height="80"/><rect x="760" y="200" width="200" height="80"/>
+              <rect x="40" y="400" width="280" height="80"/><rect x="360" y="400" width="200" height="80"/><rect x="600" y="400" width="360" height="80"/></g>
+            <rect x="480" y="200" width="240" height="80" fill="#3b43b8"/>
+            <rect x="0" y="300" width="1000" height="80" fill="#3a3a3a"/>
+            <g fill="#c5ff8a"><rect x="20" y="336" width="60" height="8"/><rect x="140" y="336" width="60" height="8"/><rect x="260" y="336" width="60" height="8"/><rect x="380" y="336" width="60" height="8"/><rect x="500" y="336" width="60" height="8"/><rect x="620" y="336" width="60" height="8"/><rect x="740" y="336" width="60" height="8"/><rect x="860" y="336" width="60" height="8"/></g>
+            <g font-family="JetBrains Mono,monospace" font-size="26" fill="#9b9b94" letter-spacing="3"><text x="-560" y="292">16TH MAIN RD</text><text x="1290" y="292">BTM LAYOUT →</text></g>
+            <rect class="ring" x="570" y="216" width="60" height="60" fill="none" stroke="#c5ff8a" stroke-width="4"/>
+            <g class="pin" fill="#c5ff8a"><rect x="580" y="150" width="40" height="10"/><rect x="570" y="160" width="60" height="40"/><rect x="580" y="200" width="40" height="10"/><rect x="590" y="210" width="20" height="10"/><rect x="595" y="220" width="10" height="10"/><rect x="590" y="170" width="20" height="20" fill="#202020"/></g>
+            <g font-family="Silkscreen,monospace" fill="#f1f1ea"><text x="650" y="150" font-size="52">ATHENIAN</text><text x="650" y="190" font-size="24" fill="#c5ff8a">TAP TO OPEN GOOGLE MAPS</text></g>
+          </svg>
+        </a>
+        <iframe title="Athenian Salon BTM on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://www.google.com/maps?q=Athenian+Salon+BTM+1198+16th+Main+Rd+Mahadeshwara+Nagar+BTM+Layout+Bengaluru+560076&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap"><div class="big" aria-hidden="true">ATHENIAN</div></div>
+  <div class="wrap r"><span>© <span id="yr"></span> Athenian Salon BTM</span><a href="#book">→ Book an appointment</a></div>
+</footer>
+
+<a href="#book" class="fab" id="fab">{Book}</a>
+
+<script>
+document.documentElement.classList.add('js');
+const WA = '918431337319';   // salon WhatsApp number, country code first, no +
+const SERVICES = [
+  ['Haircut & styling','Cuts and soft curls, tailored to your face.'],
+  ['Hair colour','Global colour, golden tones and highlights.'],
+  ['Hair botox','Smoother, softer, more manageable hair.'],
+  ['Beard trim','Clean lines and shaped edges.'],
+  ['Skin & facial','A reset with trained therapists.'],
+  ['Makeup & nail art','Occasion looks and detailed nails.']
+];
+const OPEN = 10, CLOSE = 20;   // first and last bookable hour (24h)
+const $ = s => document.querySelector(s), el = (t,c,h) => {const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e};
+const state = {svc:new Set(), date:null, time:null, name:''};
+
+/* ---------- pixel art ---------- */
+const B = {
+  scissors:['X.............X','XX...........XX','.XX.........XX.','..XX.......XX..','...XX.....XX...','....XX...XX....','.....XX.XX.....','......XXX......','.....XX.XX.....','....XX...XX....','..XXXX...XXXX..','.X...X...X...X.','.X...X...X...X.','.X...X...X...X.','..XXX.....XXX..'],
+  A:['.XXX.','X...X','X...X','XXXXX','X...X','X...X','X...X'],
+  T:['XXXXX','..X..','..X..','..X..','..X..','..X..','..X..'],
+  H:['X...X','X...X','X...X','XXXXX','X...X','X...X','X...X'],
+  bit:['XX.','.XX','..X'], dot:['X']
+};
+function glyph(rows,cell,fill,dot,x,y,rot,delay){
+  let s='';
+  rows.forEach((r,j)=>[...r].forEach((ch,i)=>{
+    if(ch!=='X')return;
+    s+=`<g class="c${Math.random()<.12?' bk':''}" style="animation-delay:${(delay+Math.random()*.9).toFixed(2)}s"><rect x="${i*cell}" y="${j*cell}" width="${cell}" height="${cell}" fill="${fill}"/><circle cx="${i*cell+cell/2}" cy="${j*cell+cell/2}" r="${cell*.22}" fill="${dot}"/></g>`;
+  }));
+  return `<g transform="translate(${x} ${y}) rotate(${rot})"><g class="fl" style="animation-delay:${-Math.random()*5}s">${s}</g></g>`;
+}
+$('#art').insertAdjacentHTML('beforeend',
+  glyph(B.T,30,'#7b86f2','#5a64dc',255,260,14,.5)+
+  glyph(B.A,32,'#e3e9ff','#8f9bff',60,285,-16,.2)+
+  glyph(B.H,34,'#cdd6ff','#6f7aea',430,250,-9,.8)+
+  glyph(B.scissors,24,'#e9eeff','#8f9bff',620,96,9,1.1)+
+  glyph(B.bit,18,'#e3e9ff','#8f9bff',560,60,20,1.6)+
+  glyph(B.dot,20,'#e3e9ff','#8f9bff',520,180,0,1.8)+
+  glyph(B.dot,16,'#cdd6ff','#6f7aea',240,230,30,1.9)+
+  glyph(B.bit,14,'#7b86f2','#5a64dc',930,430,-30,2)
+);
+
+/* twinkling grid squares behind the hero */
+const hero = $('#hero');
+for(let k=0;k<26;k++){
+  const t=el('i','tw'); t.style.left=Math.floor(Math.random()*40)*40+'px'; t.style.top=Math.floor(Math.random()*8)*40+'px';
+  t.style.animationDelay=-Math.random()*5+'s'; t.style.animationDuration=3+Math.random()*4+'s'; hero.prepend(t);
+}
+
+/* live clock */
+function tick(){const d=new Date(),p=n=>String(n).padStart(2,'0');
+  $('#clock').textContent=`${d.getFullYear()}.${p(d.getMonth()+1)}.${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`}
+tick(); setInterval(tick,1000);
+
+/* ---------- services ---------- */
+const grid = $('#grid'), svcOpts = $('#svcOpts');
+SERVICES.forEach(([n,d],k)=>{
+  const c = el('div','card rv',`<div class="hd"><div class="ic">0${k+1}</div><h3>${n}</h3></div><p>${d}</p><button type="button" class="go">→ Book this</button>`);
+  c.style.setProperty('--d',(k%3)*.08+'s');
+  c.querySelector('button').onclick=()=>{state.svc.add(n); sync(); $('#book').scrollIntoView()};
+  grid.append(c);
+  const o = el('button','opt',n); o.type='button'; o.dataset.v=n;
+  o.onclick=()=>{state.svc.has(n)?state.svc.delete(n):state.svc.add(n); sync()};
+  svcOpts.append(o);
+});
+
+/* ---------- booking ---------- */
+const days = $('#days'), today = new Date();
+for(let d=0; d<10; d++){
+  const dt = new Date(today.getFullYear(),today.getMonth(),today.getDate()+d);
+  const b = el('button','day',`<small>${d===0?'Today':dt.toLocaleDateString('en-IN',{weekday:'short'})}</small><b>${dt.getDate()}</b><small>${dt.toLocaleDateString('en-IN',{month:'short'})}</small>`);
+  b.type='button'; b.dataset.v=d;
+  b.onclick=()=>{state.date=dt; state.dayIdx=d; if(d===0&&state.time&&state.time.h<=new Date().getHours())state.time=null; sync()};
+  days.append(b);
+}
+const times = $('#times');
+for(let h=OPEN; h<=CLOSE; h++){
+  const label = ((h+11)%12+1)+':00 '+(h<12?'AM':'PM');
+  const b = el('button','opt',label); b.type='button'; b.dataset.h=h;
+  b.onclick=()=>{state.time={h,label}; sync()};
+  times.append(b);
+}
+$('#name').addEventListener('input',e=>{state.name=e.target.value.trim(); sync()});
+
+function message(){
+  return ['Hi Athenian Salon! I would like to book an appointment.','',
+    'Name: '+state.name,
+    'Service: '+[...state.svc].join(', '),
+    'Date: '+state.date.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'}),
+    'Time: '+state.time.label,'',
+    'Please confirm if this slot is available. Thank you!'].join('\n');
+}
+function sync(){
+  document.querySelectorAll('#svcOpts .opt').forEach(o=>o.classList.toggle('on',state.svc.has(o.dataset.v)));
+  document.querySelectorAll('.day').forEach(o=>o.classList.toggle('on',+o.dataset.v===state.dayIdx));
+  const nowH = new Date().getHours();
+  document.querySelectorAll('#times .opt').forEach(o=>{
+    o.disabled = state.dayIdx===0 && +o.dataset.h<=nowH;
+    o.classList.toggle('on',!!state.time && +o.dataset.h===state.time.h);
+  });
+  $('#s1').classList.toggle('done',state.svc.size>0);
+  $('#s2').classList.toggle('done',!!state.date);
+  $('#s3').classList.toggle('done',!!state.time);
+  $('#s4').classList.toggle('done',!!state.name);
+  const miss = []; if(!state.svc.size)miss.push('a service'); if(!state.date)miss.push('a day'); if(!state.time)miss.push('a time'); if(!state.name)miss.push('your name');
+  const send = $('#send');
+  if(miss.length){
+    send.classList.add('off'); send.removeAttribute('href');
+    $('#sumL').textContent='Still needed'; $('#sum').textContent=miss.join(' / ');
+  } else {
+    send.classList.remove('off'); send.href='https://wa.me/'+WA+'?text='+encodeURIComponent(message());
+    $('#sumL').textContent='Your booking';
+    $('#sum').textContent=[...state.svc].join(', ')+' / '+state.date.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'})+' / '+state.time.label+' / '+state.name;
+  }
+}
+sync();
+
+/* ---------- reveal, counters, heading scramble ---------- */
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return; e.target.classList.add('in'); io.unobserve(e.target);
+  const c = e.target.querySelector('[data-count]'); if(c) count(c);
+  const s = e.target.querySelector('[data-sc]'); if(s) scramble(s);
+}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(n=>io.observe(n));
+function count(n){
+  const to=+n.dataset.count, dec=+n.dataset.dec||0, t0=performance.now();
+  (function f(t){const p=Math.min((t-t0)/1200,1); n.textContent=(to*p).toFixed(dec); if(p<1)requestAnimationFrame(f)})(t0);
+}
+function scramble(n){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const txt=n.textContent, ch='#/<>01X+=';let f=0;
+  const id=setInterval(()=>{
+    n.textContent=[...txt].map((c,i)=>c===' '?' ':i<f/2?c:ch[Math.random()*ch.length|0]).join('');
+    if(++f>txt.length*2){clearInterval(id);n.textContent=txt}
+  },35);
+}
+
+addEventListener('scroll',()=>{
+  const b=$('#book').getBoundingClientRect();
+  $('#fab').classList.toggle('show',scrollY>500 && (b.top>innerHeight||b.bottom<0));
+},{passive:true});
+$('#yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
